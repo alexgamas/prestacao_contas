@@ -1,0 +1,63 @@
+
+
+<label for="exampleSelect1">Conta para o reembolso:</label>
+<select ng-model="contaReembolso" class="form-control">
+    <option ng-repeat="option in dadosBancariosList" value="{{option.id}}">
+        {{option.nome}}
+    </option>
+</select>
+
+
+<pre>
+Tipo Despesa:
+Viagem        Despesas Diversas
+
+Empresa:          Solutis
+Nome:             Alex Gamas dos Santos
+Função:           Analista de Sistemas
+Centro de Custo:  1219
+
+MOTIVO DA DESPESA OU VIAGEM
+Viagem a trabalho
+
+TRECHOS DA VIAGEM
+Data          Origem        Destino           Horário       Observações
+04/01/2014    Salvador      Cuiabá            7:00:00 AM
+04/04/2014    Cuiabá        Salvador          11:00:00 PM
+
+DETALHAMENTO DA(S) DESPESA (S)
+Descrição               Data              Tipo           Valor ( R$ )
+TAXI                    01/04/2014        RECIBO         20.00
+ALIMENTACAO             01/04/2014        CUPOM FISCAL   19.40
+ALIMENTACAO             02/04/2014        CUPOM FISCAL   29.97
+ALIMENTACAO             02/04/2014        CUPOM FISCAL   13.00
+ALIMENTACAO             02/04/2014        CUPOM FISCAL   17.50
+TAXI                    02/04/2014        RECIBO         18.00
+TAXI                    03/04/2014        RECIBO         20.00
+TAXI                    03/04/2014        RECIBO         20.00
+ALIMENTACAO             03/04/2014        NOTA FISCAL    35.13
+HOSPEDAGEM(DESPESAS)    03/04/2014        CUPOM FISCAL   10.50
+TAXI                    03/04/2014        RECIBO         17.00
+LAVANDERIA(DESPESAS)    04/04/2014        NOTA FISCAL    127.50
+VIAGEM(DESPESAS)        04/04/2014        RECIBO         10.00
+TAXI                    04/04/2014        RECIBO         18.00
+VIAGEM(DESPESAS)        04/04/2014        CUPOM FISCAL   15.05
+
+
+Responsável pela Despesa:
+Gestor da Área:
+
+
+DADOS BANCÁRIOS*
+
+Banco:          SANTANDER
+Tipo de Conta:  Conta Corrente
+Agência:        4682
+Nº Conta:       01029609-3
+CPF:            00700652507
+
+Outras Informações:
+
+*Para realização do pagamento do reembolso é necessário o preenchimento dos dados bancários e CPF.
+
+</pre>

@@ -1,0 +1,21 @@
+
+
+<header>
+	<h3>Viagens com prestação de contas em aberto</h3>
+</header>
+
+<div class="row">
+	<div class="col-md-4" ng-repeat="viagem in viagens">
+		<div class="card card-block">
+			<div>
+				<h4 class="card-title">Salvador - Cuiabá</h4>
+			<div>
+			<p class="card-text">
+				Iniciada a 1 mês e 2 dias atrás.
+			</p>
+			<div class="text-xs-right">
+				<a ng-href="#/prestacao/{{viagem.id}}" class="card-link">Prestar Contas</a>
+			</div>
+		</div>
+	</div>
+</div>
