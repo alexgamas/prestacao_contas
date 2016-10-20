@@ -1,0 +1,8 @@
+Exemplo baseado no tutorial da spring:
+https://spring.io/guides/gs/async-method/
+
+E Manual não oficial:
+http://blog.codeleak.pl/2014/09/testing-mail-code-in-spring-boot.html
+
+
+-- Adicionado Serviço de email.
