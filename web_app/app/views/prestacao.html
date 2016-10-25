@@ -1,11 +1,145 @@
 
 
-<label for="exampleSelect1">Conta para o reembolso:</label>
-<select ng-model="contaReembolso" class="form-control">
-    <option ng-repeat="option in dadosBancariosList" value="{{option.id}}">
-        {{option.nome}}
-    </option>
-</select>
+<div class="row">
+	<div class="col-md-4">
+		<label>Conta para o reembolso:</label>
+		<select ng-model="contaReembolso" class="form-control">
+		    <option ng-repeat="option in dadosBancariosList" value="{{option.id}}">
+		        {{option.descricao}}
+		    </option>
+		</select>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<label>Tipo Despesa:</label>
+		<select ng-model="prestacao.tipoDespesa" class="form-control">
+		    <option ng-repeat="option in tipoDespesaList" value="{{option.id}}">
+		        {{option.descricao}}
+		    </option>
+		</select>
+	</div>
+
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<label>Motivo da despesa/viagem:</label>
+		<textarea ng-model="motivo" rows="4" cols="50" class="form-control"/>
+	</div>
+</div>
+
+<!--
+<div class="row">
+	<div class="col-md-4">
+		<label>Motivo da despesa/viagem:</label>
+		<textarea rows="4" cols="50" class="form-control"/>
+	</div>
+</div>
+-->
+
+
+<div class="row" ng-show="mostrarTrechos()">
+	<div class="col-md-12">
+		<table class="table table-bordered table-sm">
+			<thead class="thead-inverse">
+				<tr class="table-title">
+					<th colspan="6">
+						Trechos Da Viagem
+						<div class="table-btn-title">
+							<button ng-click="novoTrecho()">Novo</button>
+						</div>
+					</th>
+				</tr>
+				<tr>
+					<th>Data</th>
+					<th>Origem</th>
+					<th>Destino</th>
+					<th>Horário</th>
+					<th>Observações</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in trechoList">
+					<td><input type="date" ng-model="item.data" class="form-control"/></td>
+					<td><input type="text" ng-model="item.origem" class="form-control"/></td>
+					<td><input type="text" ng-model="item.destino" class="form-control"/></td>
+					<td><input type="time" ng-model="item.horario" class="form-control"/></td>
+					<td><input type="text" ng-model="item.observacao" class="form-control"/></td>
+					<td><button ng-click="excluirTrecho(item)">Excluir</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+
+<div class="row">
+	<div class="col-md-12">
+
+		<table class="table table-bordered table-sm">
+			<thead class="thead-inverse">
+				<tr class="table-title">
+					<th colspan="5">
+						Detalhamento das despesas
+						<div class="table-btn-title">
+							<button ng-click="novoItem()">Novo</button>
+						</div>
+					</th>
+				</tr>
+				<tr>
+					<th>Descrição</th>
+					<th>Data</th>
+					<th>Tipo</th>
+					<th>Valor (R$)</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in prestacaoItemList">
+					<td>
+						<select ng-model="item.natureza" class="form-control">
+							<option ng-repeat="option in naturezaDespesaList" value="{{option.id}}">
+								{{option.descricao}}
+							</option>
+						</select>
+					</td>
+					<td>
+						<input type="date" ng-model="item.data" class="form-control"/>
+					</td>
+					<td>
+						<select ng-model="item.tipo" class="form-control">
+							<option ng-repeat="option in tipoDocumentoList" value="{{option.id}}">
+								{{option.descricao}}
+							</option>
+						</select>
+					</td>
+					<td>
+						<input type="text" ng-model="item.valor" class="form-control"/>
+					</td>
+					<td>
+						<button ng-click="excluirItem(item)">Excluir</button>
+					</td>
+				</tr>
+			</tbody>
+			<tfoot class="tfoot-inverse">
+				<tr>
+					<td colspan=4>Total</td>
+					<td>{{total()}}</td>
+				</tr>
+			</tfoot>
+		</table>
+
+	</div>
+</div>
+
+
+
+
 
 
 <pre>
