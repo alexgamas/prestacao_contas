@@ -9,7 +9,6 @@
 		    </option>
 		</select>
 	</div>
-
 </div>
 
 <div class="row">
@@ -31,6 +30,7 @@
 	</div>
 </div>
 
+lasl
 <!--
 <div class="row">
 	<div class="col-md-4">
@@ -49,11 +49,14 @@
 					<th colspan="6">
 						Trechos Da Viagem
 						<div class="table-btn-title">
-							<button ng-click="novoTrecho()">Novo</button>
+							<button class="btn btn-outline-success btn-sm" ng-click="novoTrecho()">
+								<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+							</button>
 						</div>
 					</th>
 				</tr>
 				<tr>
+					<th>Data</th>
 					<th>Data</th>
 					<th>Origem</th>
 					<th>Destino</th>
@@ -64,12 +67,22 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat="item in trechoList">
-					<td><input type="date" ng-model="item.data" class="form-control"/></td>
-					<td><input type="text" ng-model="item.origem" class="form-control"/></td>
-					<td><input type="text" ng-model="item.destino" class="form-control"/></td>
-					<td><input type="time" ng-model="item.horario" class="form-control"/></td>
-					<td><input type="text" ng-model="item.observacao" class="form-control"/></td>
-					<td><button ng-click="excluirTrecho(item)">Excluir</button></td>
+					<td>
+						<div flex-gt-xs>
+							<md-datepicker ng-model="item.data" md-placeholder="Enter date"></md-datepicker>
+						</div>
+					</td>
+					<td><input type="text" ng-model="item.data" class="form-control form-control-sm"/></td>
+					<td><input type="text" ng-model="item.origem" class="form-control form-control-sm"/></td>
+					<td><input type="text" ng-model="item.destino" class="form-control form-control-sm"/></td>
+					<td><input type="text" ng-model="item.horario" class="form-control form-control-sm"/></td>
+					<td><input type="text" ng-model="item.observacao" class="form-control form-control-sm"/></td>
+					<td>
+
+						<button class="btn btn-outline-danger btn-sm" ng-click="excluirTrecho(item)">
+							<i class="fa fa-trash-o" aria-hidden="true"></i>
+						</button>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -87,7 +100,9 @@
 					<th colspan="5">
 						Detalhamento das despesas
 						<div class="table-btn-title">
-							<button ng-click="novoItem()">Novo</button>
+							<button class="btn btn-outline-success btn-sm" ng-click="novoItem()">
+								<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+							</button>
 						</div>
 					</th>
 				</tr>
@@ -122,7 +137,9 @@
 						<input type="text" ng-model="item.valor" class="form-control"/>
 					</td>
 					<td>
-						<button ng-click="excluirItem(item)">Excluir</button>
+						<button class="btn btn-outline-danger btn-sm" ng-click="excluirItem(item)">
+							<i class="fa fa-trash-o" aria-hidden="true"></i>
+						</button>
 					</td>
 				</tr>
 			</tbody>

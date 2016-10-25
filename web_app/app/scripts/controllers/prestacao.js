@@ -45,15 +45,18 @@ angular.module('prestacaoContasApp').controller('PrestacaoCtrl', function ($scop
 	};
 
 	$scope.novoTrecho = function() {
+		$scope.trechoList.push({});
+		/*
 		var arr = $scope.trechoList;
 		arr[arr.length] = {};
+		*/
 	};
 
 	$scope.total = function () {
 		var total = 0;
 		for(var i = 0; i < $scope.prestacaoItemList.length; i++){
 			var valor = $scope.prestacaoItemList[i].valor;
-			if (valor != undefined) {
+			if (valor != undefined && !isNaN(valor)) {
 				total += parseFloat(valor);
 			}
 		}

@@ -10,7 +10,7 @@
 */
 angular.module(
 	'prestacaoContasApp',
-	['ngAnimate', 'ngCookies', 'ngMessages', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch']).config(
+	['ngMaterial', 'ngAnimate', 'ngCookies', 'ngMessages', 'ngResource', 'ngRoute', 'ngSanitize', 'ngTouch']).config(
 
 	function ($routeProvider) {
 		$routeProvider.when('/', {
