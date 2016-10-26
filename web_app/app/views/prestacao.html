@@ -2,35 +2,39 @@
 
 <div class="row">
 	<div class="col-md-4">
-		<label>Conta para o reembolso:</label>
-		<select ng-model="contaReembolso" class="form-control">
-		    <option ng-repeat="option in dadosBancariosList" value="{{option.id}}">
-		        {{option.descricao}}
-		    </option>
-		</select>
+		<md-input-container class="md-block">
+			<label>Conta para o reembolso:</label>
+			<md-select ng-model="prestacao.contaReembolso">
+				<md-option ng-repeat="option in dadosBancariosList" value="{{option.id}}">
+					{{option.descricao}}
+				</md-option>
+			</md-select>
+		</md-input-container>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-md-4">
-		<label>Tipo Despesa:</label>
-		<select ng-model="prestacao.tipoDespesa" class="form-control">
-		    <option ng-repeat="option in tipoDespesaList" value="{{option.id}}">
-		        {{option.descricao}}
-		    </option>
-		</select>
+		<md-input-container class="md-block">
+			<label>Tipo Despesa:</label>
+			<md-select ng-model="prestacao.tipoDespesa" >
+				<md-option ng-repeat="option in tipoDespesaList" value="{{option.id}}">
+					{{option.descricao}}
+				</md-option>
+			</md-select>
+		</md-input-container>
 	</div>
-
 </div>
 
 <div class="row">
 	<div class="col-md-4">
-		<label>Motivo da despesa/viagem:</label>
-		<textarea ng-model="motivo" rows="4" cols="50" class="form-control"/>
+		<md-input-container class="md-block">
+			<label>Motivo da despesa/viagem:</label>
+			<textarea ng-model="prestacao.motivo" md-maxlength="150" rows="3" md-select-on-focus></textarea>
+		</md-input-container>
 	</div>
 </div>
 
-lasl
 <!--
 <div class="row">
 	<div class="col-md-4">
@@ -41,7 +45,7 @@ lasl
 -->
 
 
-<div class="row" ng-show="mostrarTrechos()">
+<div class="row" ng-show="true || mostrarTrechos()">
 	<div class="col-md-12">
 		<table class="table table-bordered table-sm">
 			<thead class="thead-inverse">
@@ -57,7 +61,6 @@ lasl
 				</tr>
 				<tr>
 					<th>Data</th>
-					<th>Data</th>
 					<th>Origem</th>
 					<th>Destino</th>
 					<th>Horário</th>
@@ -69,12 +72,43 @@ lasl
 				<tr ng-repeat="item in trechoList">
 					<td>
 						<div flex-gt-xs>
-							<md-datepicker ng-model="item.data" md-placeholder="Enter date"></md-datepicker>
+							<md-datepicker ng-model="item.data" md-placeholder="Data" md-open-on-focus></md-datepicker>
 						</div>
 					</td>
-					<td><input type="text" ng-model="item.data" class="form-control form-control-sm"/></td>
-					<td><input type="text" ng-model="item.origem" class="form-control form-control-sm"/></td>
-					<td><input type="text" ng-model="item.destino" class="form-control form-control-sm"/></td>
+					<td>
+
+						<md-autocomplete flex required
+							md-input-name="origem"
+							md-input-minlength="2"
+							md-input-maxlength="18"
+							md-selected-item="selectedItem"
+							md-search-text="searchText"
+							md-items="item in querySearch(searchText)"
+							md-item-text="item.display"
+							md-require-match>
+							<md-item-template>
+								<span md-highlight-text="searchText">{{item.display}}</span>
+							</md-item-template>
+						</md-autocomplete>
+					</td>
+					<td>
+
+						<md-autocomplete flex required
+							md-input-name="destino"
+							md-input-minlength="2"
+							md-input-maxlength="18"
+							md-selected-item="selectedItem2"
+							md-search-text="searchText2"
+							md-items="item in querySearch(searchText2)"
+							md-item-text="item.display"
+							md-require-match>
+							<md-item-template>
+								<span md-highlight-text="searchText">{{item.display}}</span>
+							</md-item-template>
+
+						</md-autocomplete>
+
+					</td>
 					<td><input type="text" ng-model="item.horario" class="form-control form-control-sm"/></td>
 					<td><input type="text" ng-model="item.observacao" class="form-control form-control-sm"/></td>
 					<td>
@@ -153,11 +187,6 @@ lasl
 
 	</div>
 </div>
-
-
-
-
-
 
 <pre>
 Tipo Despesa:
